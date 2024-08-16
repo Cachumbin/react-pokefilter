@@ -39,61 +39,53 @@ const App = () => {
         </div>
         <div className='col-span-3'>
           <ul className='flex'>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
+            <li className='relative m-2 bg-slate-500 h-96 w-96 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]'>
+                <div className='absolute inset-0 [backface-visibility:hidden]'>
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
+                  <h2>Ditto</h2>
+                  <p>Type: Normal</p>
+                  <p>Attack: 48</p>
+                  <p>Hp: 48</p>
+                  <p>Defense: 48</p>
+                </div>
+                <div className='absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]'>
+                  <p>Special Attack: 48</p>
+                  <p>Special Defense: 48</p>
+                  <p>Speed: 48</p>
+                  <h3>Ablilities</h3>
+                  <ul>
+                    <li>Limber</li>
+                    <li>Imposter</li>
+                  </ul>
+                  <h3>Moves</h3>
+                  <ul>
+                    <li>Transform</li>
+                  </ul>
+                </div>
             </li>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
-            </li>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
-            </li>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
-            </li>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
-            </li>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
-            </li>
-            <li>
-              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-              <h2>Ditto</h2>
-              <p>Type: Normal</p>
-              <p>Attack: 48</p>
-              <p>Hp: 48</p>
-              <p>Defense: 48</p>
+            <li className='relative m-2 bg-slate-500 h-96 w-96 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]'>
+                <div className='absolute inset-0 [backface-visibility:hidden]'>
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
+                  <h2>Ditto</h2>
+                  <p>Type: Normal</p>
+                  <p>Attack: 48</p>
+                  <p>Hp: 48</p>
+                  <p>Defense: 48</p>
+                </div>
+                <div className='absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]'>
+                  <p>Special Attack: 48</p>
+                  <p>Special Defense: 48</p>
+                  <p>Speed: 48</p>
+                  <h3>Ablilities</h3>
+                  <ul>
+                    <li>Limber</li>
+                    <li>Imposter</li>
+                  </ul>
+                  <h3>Moves</h3>
+                  <ul>
+                    <li>Transform</li>
+                  </ul>
+                </div>
             </li>
           </ul>
         </div>
