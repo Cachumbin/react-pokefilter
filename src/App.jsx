@@ -9,9 +9,9 @@ const App = () => {
           <form action="" className='flex'>
             <div>
               <label htmlFor="search-bar" className='m-2 text-slate-200 font-semibold'>Search for Pokemons</label>
-              <input type="text" id="search-bar" className='bg-blue-900 rounded-lg m-2 p-2' />
+              <input type="text" id="search-bar" className='bg-blue-900 rounded-lg m-2 p-2 text-slate-200' />
             </div>
-            <button className='m-2 rounded-lg p-2 bg-blue-900 text-slate-200'><FaSearch className='fill-slate-200'/></button>
+            <button className='m-2 rounded-lg p-2 bg-blue-900'><FaSearch className='fill-slate-200'/></button>
           </form>
         </div>
       </header>
