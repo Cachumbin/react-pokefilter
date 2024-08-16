@@ -3,14 +3,14 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-      <header>
+      <header className='p-2'>
         <div>
-          <form action="">
+          <form action="" className='flex'>
             <div>
-              <label htmlFor="search-bar">Search</label>
-              <input type="text" id="search-bar" />
+              <label htmlFor="search-bar" className='m-2'>Search</label>
+              <input type="text" id="search-bar" className='bg-blue-900 rounded-lg m-2 p-2' />
             </div>
-            <button>icono</button>
+            <button className='m-2 rounded-lg p-2 bg-blue-900'>icono</button>
           </form>
         </div>
       </header>
