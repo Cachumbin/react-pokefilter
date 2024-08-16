@@ -15,8 +15,8 @@ const App = () => {
           </form>
         </div>
       </header>
-      <main>
-      <div>
+      <main className='grid grid-cols-4'>
+        <div className='col-span-1'>
           <p>Generation</p>
           <select name="generation" id="generation-select">
             <option value="1">1</option>
@@ -37,8 +37,8 @@ const App = () => {
           <input type="number" /><input type="number" />
           <button>Clear</button>
         </div>
-        <div>
-          <ul>
+        <div className='col-span-3'>
+          <ul className='flex'>
             <li>
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
               <h2>Ditto</h2>
