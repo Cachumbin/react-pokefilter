@@ -1,16 +1,17 @@
 import React from 'react'
+import { FaSearch } from "react-icons/fa";
 
 const App = () => {
   return (
     <div>
-      <header className='p-2'>
+      <header className='p-2 bg-slate-900'>
         <div>
           <form action="" className='flex'>
             <div>
-              <label htmlFor="search-bar" className='m-2'>Search</label>
+              <label htmlFor="search-bar" className='m-2 text-slate-200 font-semibold'>Search for Pokemons</label>
               <input type="text" id="search-bar" className='bg-blue-900 rounded-lg m-2 p-2' />
             </div>
-            <button className='m-2 rounded-lg p-2 bg-blue-900'>icono</button>
+            <button className='m-2 rounded-lg p-2 bg-blue-900 text-slate-200'><FaSearch className='fill-slate-200'/></button>
           </form>
         </div>
       </header>
