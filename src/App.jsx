@@ -15,7 +15,7 @@ const App = () => {
           </form>
         </div>
       </header>
-      <main className='grid grid-cols-4'>
+      <main className='grid grid-cols-4 a'>
         <div className='col-span-1'>
           <p>Generation</p>
           <select name="generation" id="generation-select">
@@ -37,53 +37,28 @@ const App = () => {
           <input type="number" /><input type="number" />
           <button>Clear</button>
         </div>
-        <div className='col-span-3'>
+        <div className='col-span-3 bg-indigo-950'>
           <ul className='flex'>
-            <li className='relative m-2 bg-slate-500 h-96 w-96 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]'>
-                <div className='absolute inset-0 [backface-visibility:hidden]'>
-                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-                  <h2>Ditto</h2>
-                  <p>Type: Normal</p>
-                  <p>Attack: 48</p>
-                  <p>Hp: 48</p>
-                  <p>Defense: 48</p>
+            <li className='relative m-5 bg-sky-700 h-96 w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]'>
+                <div className='absolute inset-0 [backface-visibility:hidden] grid gris-rows-6 font-semibold text-slate-200'>
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="" className='size-48 place-self-center'/>
+                  <h2  className='p-1  mx-3 text-lg'>Ditto</h2>
+                  <p className='p-1 mx-3'>Type: Normal</p>
+                  <p className='p-1 mx-3'>Attack: 48</p>
+                  <p className='p-1 mx-3'>Hp: 48</p>
+                  <p className='p-1 mx-3'>Defense: 48</p>
                 </div>
-                <div className='absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]'>
-                  <p>Special Attack: 48</p>
-                  <p>Special Defense: 48</p>
-                  <p>Speed: 48</p>
-                  <h3>Ablilities</h3>
+                <div className='absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold'>
+                  <p className='p-1 mx-3 mt-4'>Special Defense: 48</p>
+                  <p className='p-1 mx-3'>Speed: 48</p>
+                  <h3 className='p-1 mx-3 text-lg'>Ablilities</h3>
                   <ul>
-                    <li>Limber</li>
-                    <li>Imposter</li>
+                    <li className='p-1 mx-3'>- Limber</li>
+                    <li className='p-1 mx-3'>- Imposter</li>
                   </ul>
-                  <h3>Moves</h3>
+                  <h3 className='p-1 mx-3 text-lg'>Moves</h3>
                   <ul>
-                    <li>Transform</li>
-                  </ul>
-                </div>
-            </li>
-            <li className='relative m-2 bg-slate-500 h-96 w-96 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]'>
-                <div className='absolute inset-0 [backface-visibility:hidden]'>
-                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="" />
-                  <h2>Ditto</h2>
-                  <p>Type: Normal</p>
-                  <p>Attack: 48</p>
-                  <p>Hp: 48</p>
-                  <p>Defense: 48</p>
-                </div>
-                <div className='absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden]'>
-                  <p>Special Attack: 48</p>
-                  <p>Special Defense: 48</p>
-                  <p>Speed: 48</p>
-                  <h3>Ablilities</h3>
-                  <ul>
-                    <li>Limber</li>
-                    <li>Imposter</li>
-                  </ul>
-                  <h3>Moves</h3>
-                  <ul>
-                    <li>Transform</li>
+                    <li className='p-1 mx-3'>- Transform</li>
                   </ul>
                 </div>
             </li>
