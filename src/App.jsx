@@ -15,29 +15,29 @@ const App = () => {
           </form>
         </div>
       </header>
-      <main className='grid grid-cols-4 a'>
-        <div className='col-span-1'>
-          <p>Generation</p>
-          <select name="generation" id="generation-select">
+      <main className='grid grid-cols-5 a'>
+        <div className='col-span-1 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2'>
+          <p className='place-self-center text-lg col-span-2'>Generation</p>
+          <select className='h-10 col-span-2' name="generation" id="generation-select">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
-          <p>Type</p>
-          <select name="type" id="type-select">
+          <p className='place-self-center text-lg col-span-2'>Type</p>
+          <select className='h-10 col-span-2' name="type" id="type-select">
             <option value="fire">Fire</option>
             <option value="ice">Ice</option>
             <option value="normal">Normal</option>
           </select>
           <h3>Hp</h3>
-          <input type="number" /><input type="number" />
+          <input type="number" placeholder='min' className='h-10 col-start-1' /><input type="number" placeholder='max' className='h-10' />
           <h3>Attack</h3>
-          <input type="number" /><input type="number" />
+          <input type="number" placeholder='min' className='h-10 col-start-1' /><input type="number" placeholder='max' className='h-10' />
           <h3>Defense</h3>
-          <input type="number" /><input type="number" />
-          <button>Clear</button>
+          <input type="number" placeholder='min' className='h-10 col-start-1' /><input type="number" placeholder='max' className='h-10' />
+          <button className='col-span-2'>Clear</button>
         </div>
-        <div className='col-span-3 bg-indigo-950'>
+        <div className='col-span-4 bg-indigo-950'>
           <ul className='flex'>
             <li className='relative m-5 bg-sky-700 h-96 w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]'>
                 <div className='absolute inset-0 [backface-visibility:hidden] grid gris-rows-6 font-semibold text-slate-200'>
