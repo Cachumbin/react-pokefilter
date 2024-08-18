@@ -1,7 +1,21 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import { FaSearch } from "react-icons/fa";
 
 const App = () => {
+
+  const [pokemons, setPokemons] = useState(null)
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/generation/1")
+      .then(res => {
+        return res.json()
+      })
+      .then((data) => {
+        console.log(data)
+      })
+  }, [])
+
   return (
     <div>
       <header className='p-2 bg-slate-900'>
