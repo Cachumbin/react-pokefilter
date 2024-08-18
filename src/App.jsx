@@ -5,6 +5,8 @@ import { FaSearch } from "react-icons/fa";
 const App = () => {
   const [pokemonsRaw, setPokemonsRaw] = useState(null);
   const [pokemons, setPokemons] = useState([]);
+  const [searchWord, setSearchWord] = useState("");
+  const [filteredPokemons, setFilterPokemons] = useState([]);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/generation/1")
@@ -37,6 +39,17 @@ const App = () => {
     pokemonsRaw && getPokemons();
   }, [pokemonsRaw]);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    let pokemonsCopy = [...pokemons];
+    setFilterPokemons(
+      pokemonsCopy.filter((pokemonData) => {
+        return pokemonData.name.includes(searchWord);
+      })
+    );
+
+    setSearchWord("");
+  }
   /*{pokemonData.types[0].type.name},{" "}
                       {pokemonData.types[1].type.name && true}*/
 
@@ -44,7 +57,7 @@ const App = () => {
     <div>
       <header className="p-2 bg-slate-900">
         <div>
-          <form action="" className="flex">
+          <form action="" className="flex" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="search-bar"
@@ -56,6 +69,8 @@ const App = () => {
                 type="text"
                 id="search-bar"
                 className="bg-blue-900 rounded-lg m-2 p-2 text-slate-200"
+                value={searchWord}
+                onChange={(e) => setSearchWord(e.target.value)}
               />
             </div>
             <button className="m-2 rounded-lg p-2 bg-blue-900">
@@ -95,7 +110,14 @@ const App = () => {
         </div>
         <div className="col-span-4 bg-indigo-950">
           <ul className="flex flex-wrap">
-            {pokemons.map((pokemonData) => {
+            <button
+              onClick={() => {
+                console.log(filteredPokemons);
+              }}
+            >
+              asdasd
+            </button>
+            {filteredPokemons.map((pokemonData) => {
               return (
                 <li
                   key={pokemonData.id}
