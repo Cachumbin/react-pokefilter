@@ -6,7 +6,6 @@ const App = () => {
   const [pokemonsRaw, setPokemonsRaw] = useState(null);
   const [pokemons, setPokemons] = useState([]);
   const [searchWord, setSearchWord] = useState("");
-  const [filteredPokemons, setFilterPokemons] = useState([]);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/generation/1")
@@ -41,14 +40,12 @@ const App = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    let pokemonsCopy = [...pokemons];
+    /*let pokemonsCopy = [...pokemons];
     setFilterPokemons(
       pokemonsCopy.filter((pokemonData) => {
         return pokemonData.name.includes(searchWord);
       })
-    );
-
-    setSearchWord("");
+    );*/
   }
   /*{pokemonData.types[0].type.name},{" "}
                       {pokemonData.types[1].type.name && true}*/
@@ -117,113 +114,59 @@ const App = () => {
             >
               asdasd
             </button>
-            {filteredPokemons.length > 0
-              ? filteredPokemons.map((pokemonData) => {
-                  return (
-                    <li
-                      key={pokemonData.id}
-                      className="relative m-5 bg-sky-700 h-96 w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
-                    >
-                      <div className="absolute inset-0 [backface-visibility:hidden] grid gris-rows-6 font-semibold text-slate-200">
-                        <img
-                          src={pokemonData.sprites.front_default}
-                          alt=""
-                          className="size-48 place-self-center"
-                        />
-                        <h2 className="p-1  mx-3 text-lg">
-                          {pokemonData.name}
-                        </h2>
-                        <p className="p-1 mx-3">Type:</p>
-                        <p className="p-1 mx-3">
-                          Attack: {pokemonData.stats[1].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Hp: {pokemonData.stats[0].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Defense: {pokemonData.stats[2].base_stat}
-                        </p>
-                      </div>
-                      <div className="absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold">
-                        <p className="p-1 mx-3 mt-4">
-                          Special Defense: {pokemonData.stats[4].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Speed: {pokemonData.stats[5].base_stat}
-                        </p>
-                        <h3 className="p-1 mx-3 text-lg">Ablilities</h3>
-                        <ul>
-                          {pokemonData.abilities.map((ab) => {
-                            <li key={ab.ability.name} className="p-1 mx-3">
-                              - {ab.ability.name}
-                            </li>;
-                          })}
-                        </ul>
-                        <h3 className="p-1 mx-3 text-lg">Moves</h3>
-                        <ul>
-                          {pokemonData.moves.map((mo) => {
-                            <li key={mo.move.name} className="p-1 mx-3">
-                              - {mo.move.name}
-                            </li>;
-                          })}
-                        </ul>
-                      </div>
-                    </li>
-                  );
-                })
-              : pokemons.map((pokemonData) => {
-                  return (
-                    <li
-                      key={pokemonData.id}
-                      className="relative m-5 bg-sky-700 h-96 w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
-                    >
-                      <div className="absolute inset-0 [backface-visibility:hidden] grid gris-rows-6 font-semibold text-slate-200">
-                        <img
-                          src={pokemonData.sprites.front_default}
-                          alt=""
-                          className="size-48 place-self-center"
-                        />
-                        <h2 className="p-1  mx-3 text-lg">
-                          {pokemonData.name}
-                        </h2>
-                        <p className="p-1 mx-3">Type:</p>
-                        <p className="p-1 mx-3">
-                          Attack: {pokemonData.stats[1].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Hp: {pokemonData.stats[0].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Defense: {pokemonData.stats[2].base_stat}
-                        </p>
-                      </div>
-                      <div className="absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold">
-                        <p className="p-1 mx-3 mt-4">
-                          Special Defense: {pokemonData.stats[4].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Speed: {pokemonData.stats[5].base_stat}
-                        </p>
-                        <h3 className="p-1 mx-3 text-lg">Ablilities</h3>
-                        <ul>
-                          {pokemonData.abilities.map((ab) => {
-                            <li key={ab.ability.name} className="p-1 mx-3">
-                              - {ab.ability.name}
-                            </li>;
-                          })}
-                        </ul>
-                        <h3 className="p-1 mx-3 text-lg">Moves</h3>
-                        <ul>
-                          {pokemonData.moves.map((mo) => {
-                            <li key={mo.move.name} className="p-1 mx-3">
-                              - {mo.move.name}
-                            </li>;
-                          })}
-                        </ul>
-                      </div>
-                    </li>
-                  );
-                })}
+            {pokemons.map((pokemonData) => {
+              return (
+                pokemonData.name.includes(searchWord) && (
+                  <li
+                    key={pokemonData.id}
+                    className="relative m-5 bg-sky-700 h-96 w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
+                  >
+                    <div className="absolute inset-0 [backface-visibility:hidden] grid gris-rows-6 font-semibold text-slate-200">
+                      <img
+                        src={pokemonData.sprites.front_default}
+                        alt=""
+                        className="size-48 place-self-center"
+                      />
+                      <h2 className="p-1  mx-3 text-lg">{pokemonData.name}</h2>
+                      <p className="p-1 mx-3">Type:</p>
+                      <p className="p-1 mx-3">
+                        Attack: {pokemonData.stats[1].base_stat}
+                      </p>
+                      <p className="p-1 mx-3">
+                        Hp: {pokemonData.stats[0].base_stat}
+                      </p>
+                      <p className="p-1 mx-3">
+                        Defense: {pokemonData.stats[2].base_stat}
+                      </p>
+                    </div>
+                    <div className="absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold">
+                      <p className="p-1 mx-3 mt-4">
+                        Special Defense: {pokemonData.stats[4].base_stat}
+                      </p>
+                      <p className="p-1 mx-3">
+                        Speed: {pokemonData.stats[5].base_stat}
+                      </p>
+                      <h3 className="p-1 mx-3 text-lg">Ablilities</h3>
+                      <ul>
+                        {pokemonData.abilities.map((ab) => {
+                          <li key={ab.ability.name} className="p-1 mx-3">
+                            - {ab.ability.name}
+                          </li>;
+                        })}
+                      </ul>
+                      <h3 className="p-1 mx-3 text-lg">Moves</h3>
+                      <ul>
+                        {pokemonData.moves.map((mo) => {
+                          <li key={mo.move.name} className="p-1 mx-3">
+                            - {mo.move.name}
+                          </li>;
+                        })}
+                      </ul>
+                    </div>
+                  </li>
+                )
+              );
+            })}
           </ul>
         </div>
       </main>
