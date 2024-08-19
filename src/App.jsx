@@ -107,13 +107,6 @@ const App = () => {
         </div>
         <div className="col-span-4 bg-indigo-950">
           <ul className="flex flex-wrap">
-            <button
-              onClick={() => {
-                console.log(filteredPokemons);
-              }}
-            >
-              asdasd
-            </button>
             {pokemons.map((pokemonData) => {
               return (
                 pokemonData.name.includes(searchWord) && (
