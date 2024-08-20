@@ -77,7 +77,7 @@ const App = () => {
         </div>
       </header>
       <main className="grid grid-cols-5 a">
-        <div className="col-span-1 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2">
+        <div className="col-span-1 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2 h-[calc(100vh-72px)]">
           <p className="place-self-center text-lg col-span-2">Generation</p>
           <select
             className="h-10 col-span-2"
@@ -105,8 +105,8 @@ const App = () => {
           <input type="number" placeholder="max" className="h-10" />
           <button className="col-span-2">Clear</button>
         </div>
-        <div className="col-span-4 bg-indigo-950">
-          <ul className="flex flex-wrap">
+        <div className="col-span-4 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
+          <ul className="grid grid-cols-4">
             {pokemons.map((pokemonData) => {
               return (
                 pokemonData.name.includes(searchWord) && (
