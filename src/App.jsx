@@ -141,7 +141,7 @@ const App = () => {
                         Defense: {pokemonData.stats[2].base_stat}
                       </p>
                     </div>
-                    <div className="absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold">
+                    <div className=" overflow-hidden absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold">
                       <p className="p-1 mx-3 mt-4">
                         Special Defense: {pokemonData.stats[4].base_stat}
                       </p>
