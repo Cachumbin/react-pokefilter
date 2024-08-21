@@ -6,9 +6,10 @@ const App = () => {
   const [pokemonsRaw, setPokemonsRaw] = useState(null);
   const [pokemons, setPokemons] = useState([]);
   const [searchWord, setSearchWord] = useState("");
+  const [generation, setGeneration] = useState("1");
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/generation/1")
+    fetch(`https://pokeapi.co/api/v2/generation/${generation}`)
       .then((res) => {
         return res.json();
       })
@@ -16,7 +17,7 @@ const App = () => {
         console.log(data);
         setPokemonsRaw(data);
       });
-  }, []);
+  }, [generation]);
 
   useEffect(() => {
     const getPokemon = async (name) => {
@@ -83,10 +84,16 @@ const App = () => {
             className="h-10 col-span-2"
             name="generation"
             id="generation-select"
+            onChange={(e) => setGeneration(e.target.value)}
           >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
           </select>
           <p className="place-self-center text-lg col-span-2">Type</p>
           <select className="h-10 col-span-2" name="type" id="type-select">
