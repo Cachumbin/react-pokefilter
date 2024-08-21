@@ -68,7 +68,7 @@ const App = () => {
                 id="search-bar"
                 className="bg-blue-900 rounded-lg m-2 p-2 text-slate-200"
                 value={searchWord}
-                onChange={(e) => setSearchWord(e.target.value)}
+                onChange={(e) => setSearchWord(e.target.value.toLowerCase())}
               />
             </div>
             <button className="m-2 rounded-lg p-2 bg-blue-900">
@@ -127,7 +127,10 @@ const App = () => {
                         alt=""
                         className="size-48 place-self-center"
                       />
-                      <h2 className="p-1  mx-3 text-lg">{pokemonData.name}</h2>
+                      <h2 className="p-1  mx-3 text-lg">
+                        {pokemonData.name.charAt(0).toUpperCase() +
+                          pokemonData.name.slice(1).toLowerCase()}
+                      </h2>
                       <h3 className="p-1 mx-3">Type</h3>
                       <ul className="h-12">
                         {pokemonData.types.map((typeinfo) => {
