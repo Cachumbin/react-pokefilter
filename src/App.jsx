@@ -7,6 +7,7 @@ const App = () => {
   const [pokemons, setPokemons] = useState([]);
   const [searchWord, setSearchWord] = useState("");
   const [generation, setGeneration] = useState("1");
+  const [type, setType] = useState("");
 
   useEffect(() => {
     setPokemons([]);
@@ -89,10 +90,31 @@ const App = () => {
             <option value="8">8</option>
           </select>
           <p className="place-self-center text-lg col-span-2">Type</p>
-          <select className="h-10 col-span-2" name="type" id="type-select">
+          <select
+            onChange={(e) => setType(e.target.value)}
+            className="h-10 col-span-2"
+            name="type"
+            id="type-select"
+          >
+            <option value="">All</option>
+            <option value="bug">Bug</option>
+            <option value="dark">Dark</option>
+            <option value="dragon">Dragon</option>
+            <option value="electric">Electric</option>
+            <option value="fairy">Fairy</option>
+            <option value="fighting">Fighting</option>
             <option value="fire">Fire</option>
+            <option value="flying">Flying</option>
+            <option value="ghost">Ghost</option>
+            <option value="grass">Grass</option>
+            <option value="ground">Ground</option>
             <option value="ice">Ice</option>
             <option value="normal">Normal</option>
+            <option value="dragon">Poison</option>
+            <option value="psychic">Psychic</option>
+            <option value="rock">Rock</option>
+            <option value="steel">Steel</option>
+            <option value="water">Water</option>
           </select>
           <h3>Hp</h3>
           <input type="number" placeholder="min" className="h-10 col-start-1" />
@@ -109,8 +131,9 @@ const App = () => {
           <ul className="grid grid-cols-4 place-items-center">
             {pokemons.map((pokemonData) => {
               return (
-                pokemonData.name.includes(searchWord) && (
-                  <li
+                pokemonData.name.includes(searchWord) &&
+                pokemonData.types[0].type.name.includes(type) && (
+                  /*pokemonData.types[1].type.name.includes("") &&*/ <li
                     key={pokemonData.id}
                     className="relative m-5 bg-sky-700 h-[450px] w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
                   >
