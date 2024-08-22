@@ -8,6 +8,18 @@ const App = () => {
   const [searchWord, setSearchWord] = useState("");
   const [generation, setGeneration] = useState("1");
   const [type, setType] = useState("");
+  const [attack, setAttack] = useState({
+    min: 0,
+    max: 300,
+  });
+  const [hp, setHp] = useState({
+    min: 0,
+    max: 300,
+  });
+  const [defense, setDefense] = useState({
+    min: 0,
+    max: 300,
+  });
 
   useEffect(() => {
     setPokemons([]);
@@ -117,14 +129,74 @@ const App = () => {
             <option value="water">Water</option>
           </select>
           <h3>Hp</h3>
-          <input type="number" placeholder="min" className="h-10 col-start-1" />
-          <input type="number" placeholder="max" className="h-10" />
+          <input
+            type="number"
+            placeholder="min"
+            className="h-10 col-start-1"
+            onChange={(e) =>
+              setHp({
+                ...hp,
+                min: parseInt(e.target.value) || 0,
+              })
+            }
+          />
+          <input
+            type="number"
+            placeholder="max"
+            className="h-10"
+            onChange={(e) =>
+              setHp({
+                ...hp,
+                max: parseInt(e.target.value) || 300,
+              })
+            }
+          />
           <h3>Attack</h3>
-          <input type="number" placeholder="min" className="h-10 col-start-1" />
-          <input type="number" placeholder="max" className="h-10" />
+          <input
+            type="number"
+            placeholder="min"
+            className="h-10 col-start-1"
+            onChange={(e) =>
+              setAttack({
+                ...attack,
+                min: parseInt(e.target.value) || 0,
+              })
+            }
+          />
+          <input
+            type="number"
+            placeholder="max"
+            className="h-10"
+            onChange={(e) =>
+              setAttack({
+                ...attack,
+                max: parseInt(e.target.value) || 300,
+              })
+            }
+          />
           <h3>Defense</h3>
-          <input type="number" placeholder="min" className="h-10 col-start-1" />
-          <input type="number" placeholder="max" className="h-10" />
+          <input
+            type="number"
+            placeholder="min"
+            className="h-10 col-start-1"
+            onChange={(e) =>
+              setDefense({
+                ...defense,
+                min: parseInt(e.target.value) || 0,
+              })
+            }
+          />
+          <input
+            type="number"
+            placeholder="max"
+            className="h-10"
+            onChange={(e) =>
+              setDefense({
+                ...defense,
+                max: parseInt(e.target.value) || 300,
+              })
+            }
+          />
           <button className="col-span-2">Clear</button>
         </div>
         <div className="col-span-4 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
@@ -134,7 +206,13 @@ const App = () => {
                 pokemonData.name.includes(searchWord) &&
                 pokemonData.types.some((element) =>
                   element.type.name.includes(type)
-                ) && (
+                ) &&
+                pokemonData.stats[0].base_stat >= hp.min &&
+                pokemonData.stats[0].base_stat <= hp.max &&
+                pokemonData.stats[1].base_stat >= attack.min &&
+                pokemonData.stats[1].base_stat <= attack.max &&
+                pokemonData.stats[2].base_stat >= defense.min &&
+                pokemonData.stats[2].base_stat <= defense.max && (
                   <li
                     key={pokemonData.id}
                     className="relative m-5 bg-sky-700 h-[450px] w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
