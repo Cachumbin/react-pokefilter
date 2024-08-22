@@ -9,6 +9,7 @@ const App = () => {
   const [generation, setGeneration] = useState("1");
 
   useEffect(() => {
+    setPokemons([]);
     fetch(`https://pokeapi.co/api/v2/generation/${generation}`)
       .then((res) => {
         return res.json();
@@ -41,15 +42,7 @@ const App = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    /*let pokemonsCopy = [...pokemons];
-    setFilterPokemons(
-      pokemonsCopy.filter((pokemonData) => {
-        return pokemonData.name.includes(searchWord);
-      })
-    );*/
   }
-  /*,{" "}
-                      {pokemonData.types[1].type.name && true}*/
 
   return (
     <div>
