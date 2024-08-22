@@ -53,6 +53,18 @@ const App = () => {
     e.preventDefault();
   }
 
+  function clearFilters() {
+    setType("");
+    setStats({
+      hpMin: 0,
+      hpMax: 300,
+      attackMin: 0,
+      attackMax: 300,
+      defenseMin: 0,
+      defenseMax: 300,
+    });
+  }
+
   return (
     <div>
       <header className="p-2 bg-slate-900">
@@ -103,6 +115,7 @@ const App = () => {
             className="h-10 col-span-2"
             name="type"
             id="type-select"
+            value={type}
           >
             <option value="">All</option>
             <option value="bug">Bug</option>
@@ -129,6 +142,9 @@ const App = () => {
             type="number"
             placeholder="min"
             className="h-10 col-start-1"
+            value={
+              (stats.hpMin == 0 && "") || (stats.hpMin != 0 && stats.hpMin)
+            }
             onChange={(e) =>
               setStats({
                 ...stats,
@@ -140,6 +156,9 @@ const App = () => {
             type="number"
             placeholder="max"
             className="h-10"
+            value={
+              (stats.hpMax == 300 && "") || (stats.hpMax != 300 && stats.hpMax)
+            }
             onChange={(e) =>
               setStats({
                 ...stats,
@@ -152,6 +171,10 @@ const App = () => {
             type="number"
             placeholder="min"
             className="h-10 col-start-1"
+            value={
+              (stats.attackMin == 0 && "") ||
+              (stats.attackMin != 0 && stats.attackMin)
+            }
             onChange={(e) =>
               setStats({
                 ...stats,
@@ -163,6 +186,10 @@ const App = () => {
             type="number"
             placeholder="max"
             className="h-10"
+            value={
+              (stats.attackMax == 300 && "") ||
+              (stats.attackMax != 300 && stats.attackMax)
+            }
             onChange={(e) =>
               setStats({
                 ...stats,
@@ -175,6 +202,10 @@ const App = () => {
             type="number"
             placeholder="min"
             className="h-10 col-start-1"
+            value={
+              (stats.defenseMin == 0 && "") ||
+              (stats.defenseMin != 0 && stats.defenseMin)
+            }
             onChange={(e) =>
               setStats({
                 ...stats,
@@ -186,6 +217,10 @@ const App = () => {
             type="number"
             placeholder="max"
             className="h-10"
+            value={
+              (stats.defenseMax == 300 && "") ||
+              (stats.defenseMax != 300 && stats.defenseMax)
+            }
             onChange={(e) =>
               setStats({
                 ...stats,
@@ -193,7 +228,9 @@ const App = () => {
               })
             }
           />
-          <button className="col-span-2">Clear</button>
+          <button className="col-span-2" onClick={() => clearFilters()}>
+            Clear
+          </button>
         </div>
         <div className="col-span-4 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
           <ul className="grid grid-cols-4 place-items-center">
