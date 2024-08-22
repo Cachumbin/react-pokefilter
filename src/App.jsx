@@ -132,8 +132,10 @@ const App = () => {
             {pokemons.map((pokemonData) => {
               return (
                 pokemonData.name.includes(searchWord) &&
-                pokemonData.types[0].type.name.includes(type) && (
-                  /*pokemonData.types[1].type.name.includes("") &&*/ <li
+                pokemonData.types.some((element) =>
+                  element.type.name.includes(type)
+                ) && (
+                  <li
                     key={pokemonData.id}
                     className="relative m-5 bg-sky-700 h-[450px] w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
                   >
