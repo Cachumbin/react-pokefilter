@@ -8,17 +8,13 @@ const App = () => {
   const [searchWord, setSearchWord] = useState("");
   const [generation, setGeneration] = useState("1");
   const [type, setType] = useState("");
-  const [attack, setAttack] = useState({
-    min: 0,
-    max: 300,
-  });
-  const [hp, setHp] = useState({
-    min: 0,
-    max: 300,
-  });
-  const [defense, setDefense] = useState({
-    min: 0,
-    max: 300,
+  const [stats, setStats] = useState({
+    hpMin: 0,
+    hpMax: 300,
+    attackMin: 0,
+    attackMax: 300,
+    defenseMin: 0,
+    defenseMax: 300,
   });
 
   useEffect(() => {
@@ -134,9 +130,9 @@ const App = () => {
             placeholder="min"
             className="h-10 col-start-1"
             onChange={(e) =>
-              setHp({
-                ...hp,
-                min: parseInt(e.target.value) || 0,
+              setStats({
+                ...stats,
+                hpMin: parseInt(e.target.value) || 0,
               })
             }
           />
@@ -145,9 +141,9 @@ const App = () => {
             placeholder="max"
             className="h-10"
             onChange={(e) =>
-              setHp({
-                ...hp,
-                max: parseInt(e.target.value) || 300,
+              setStats({
+                ...stats,
+                hpMax: parseInt(e.target.value) || 300,
               })
             }
           />
@@ -157,9 +153,9 @@ const App = () => {
             placeholder="min"
             className="h-10 col-start-1"
             onChange={(e) =>
-              setAttack({
-                ...attack,
-                min: parseInt(e.target.value) || 0,
+              setStats({
+                ...stats,
+                attackMin: parseInt(e.target.value) || 0,
               })
             }
           />
@@ -168,9 +164,9 @@ const App = () => {
             placeholder="max"
             className="h-10"
             onChange={(e) =>
-              setAttack({
-                ...attack,
-                max: parseInt(e.target.value) || 300,
+              setStats({
+                ...stats,
+                attackMax: parseInt(e.target.value) || 300,
               })
             }
           />
@@ -180,9 +176,9 @@ const App = () => {
             placeholder="min"
             className="h-10 col-start-1"
             onChange={(e) =>
-              setDefense({
-                ...defense,
-                min: parseInt(e.target.value) || 0,
+              setStats({
+                ...stats,
+                defenseMin: parseInt(e.target.value) || 0,
               })
             }
           />
@@ -191,9 +187,9 @@ const App = () => {
             placeholder="max"
             className="h-10"
             onChange={(e) =>
-              setDefense({
-                ...defense,
-                max: parseInt(e.target.value) || 300,
+              setStats({
+                ...stats,
+                defenseMax: parseInt(e.target.value) || 300,
               })
             }
           />
@@ -207,12 +203,12 @@ const App = () => {
                 pokemonData.types.some((element) =>
                   element.type.name.includes(type)
                 ) &&
-                pokemonData.stats[0].base_stat >= hp.min &&
-                pokemonData.stats[0].base_stat <= hp.max &&
-                pokemonData.stats[1].base_stat >= attack.min &&
-                pokemonData.stats[1].base_stat <= attack.max &&
-                pokemonData.stats[2].base_stat >= defense.min &&
-                pokemonData.stats[2].base_stat <= defense.max && (
+                pokemonData.stats[0].base_stat >= stats.hpMin &&
+                pokemonData.stats[0].base_stat <= stats.hpMax &&
+                pokemonData.stats[1].base_stat >= stats.attackMin &&
+                pokemonData.stats[1].base_stat <= stats.attackMax &&
+                pokemonData.stats[2].base_stat >= stats.defenseMin &&
+                pokemonData.stats[2].base_stat <= stats.defenseMax && (
                   <li
                     key={pokemonData.id}
                     className="relative m-5 bg-sky-700 h-[450px] w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
