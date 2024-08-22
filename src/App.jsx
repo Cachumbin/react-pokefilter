@@ -113,7 +113,7 @@ const App = () => {
           <button className="col-span-2">Clear</button>
         </div>
         <div className="col-span-4 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
-          <ul className="grid grid-cols-4">
+          <ul className="grid grid-cols-4 place-items-center">
             {pokemons.map((pokemonData) => {
               return (
                 pokemonData.name.includes(searchWord) && (
