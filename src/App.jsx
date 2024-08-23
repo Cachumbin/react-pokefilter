@@ -95,7 +95,7 @@ const App = () => {
         <div className="col-span-1 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2 h-[calc(100vh-72px)]">
           <p className="place-self-center text-lg col-span-2">Generation</p>
           <select
-            className="h-10 col-span-2 p-2 rounded-lg text-indigo-900"
+            className="h-10 col-span-2 p-2 rounded-lg text-indigo-900 mx-4"
             name="generation"
             id="generation-select"
             onChange={(e) => setGeneration(e.target.value)}
@@ -112,7 +112,7 @@ const App = () => {
           <p className="place-self-center text-lg col-span-2">Type</p>
           <select
             onChange={(e) => setType(e.target.value)}
-            className="h-10 col-span-2 p-2 rounded-lg text-indigo-900"
+            className="h-10 col-span-2 p-2 rounded-lg text-indigo-900 mx-4"
             name="type"
             id="type-select"
             value={type}
