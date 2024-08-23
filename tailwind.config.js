@@ -11,5 +11,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-bg-patterns'), // Añade el plugin para patrones de fondo
+  ],
 }
