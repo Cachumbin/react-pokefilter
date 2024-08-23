@@ -170,7 +170,7 @@ const App = () => {
             <option value="ground">Ground</option>
             <option value="ice">Ice</option>
             <option value="normal">Normal</option>
-            <option value="dragon">Poison</option>
+            <option value="poison">Poison</option>
             <option value="psychic">Psychic</option>
             <option value="rock">Rock</option>
             <option value="steel">Steel</option>
@@ -277,6 +277,10 @@ const App = () => {
         <div className="col-span-9 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
           <ul className="grid grid-cols-3 place-items-center">
             {pokemons.map((pokemonData) => {
+              const pokemonType = pokemonData.types[0]?.type?.name || "normal";
+              const backgroundImage =
+                backgrounds[pokemonType] || backgrounds.normal;
+
               return (
                 pokemonData.name.includes(searchWord) &&
                 pokemonData.types.some((element) =>
@@ -353,7 +357,7 @@ const App = () => {
                   </li>*/
                   <li
                     key={pokemonData.id}
-                    className="grid grid-cols-5 w-[480px] pt-8 bg-stone-300"
+                    className="grid grid-cols-5 w-[480px] pt-8 bg-stone-300 m-6"
                   >
                     <div className="col-span-2 bg-amber-300">
                       <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400">
@@ -361,7 +365,7 @@ const App = () => {
                         <div className="relative border-2 m-2 border-neutral-400 h-40 w-40">
                           <img
                             className="absolute inset-0 w-full h-full object-cover z-0"
-                            src={backgrounds.bug}
+                            src={backgroundImage}
                             alt=""
                           />
                           <img
