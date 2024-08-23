@@ -1,6 +1,24 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
+import bug from "./assets/backgrounds/bug.jpg";
+import dark from "./assets/backgrounds/dark.jpg";
+import dragon from "./assets/backgrounds/dragon.jpg";
+import electric from "./assets/backgrounds/electric.jpg";
+import fairy from "./assets/backgrounds/fairy.jpg";
+import fighting from "./assets/backgrounds/fighting.jpg";
+import fire from "./assets/backgrounds/fire.jpg";
+import flying from "./assets/backgrounds/flying.jpg";
+import ghost from "./assets/backgrounds/ghost.jpg";
+import grass from "./assets/backgrounds/grass.jpg";
+import ground from "./assets/backgrounds/ground.jpg";
+import ice from "./assets/backgrounds/ice.jpg";
+import normal from "./assets/backgrounds/normal.jpg";
+import poison from "./assets/backgrounds/poison.jpg";
+import psychic from "./assets/backgrounds/psychic.jpg";
+import rock from "./assets/backgrounds/rock.jpg";
+import steel from "./assets/backgrounds/steel.jpg";
+import water from "./assets/backgrounds/water.jpg";
 
 const App = () => {
   const [pokemonsRaw, setPokemonsRaw] = useState(null);
@@ -16,6 +34,27 @@ const App = () => {
     defenseMin: 0,
     defenseMax: 300,
   });
+
+  const backgrounds = {
+    bug: bug,
+    dark: dark,
+    dragon: dragon,
+    electric: electric,
+    fairy: fairy,
+    fighting: fighting,
+    fire: fire,
+    flying: flying,
+    ghost: ghost,
+    grass: grass,
+    ground: ground,
+    ice: ice,
+    normal: normal,
+    poison: poison,
+    psychic: psychic,
+    rock: rock,
+    steel: steel,
+    water: water,
+  };
 
   useEffect(() => {
     setPokemons([]);
@@ -319,11 +358,18 @@ const App = () => {
                     <div className="col-span-2 bg-amber-300">
                       <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400">
                         <h3>No.{pokemonData.id}</h3>
-                        <img
-                          src={pokemonData.sprites.front_default}
-                          className="size-40 border-2 m-2 border-neutral-400"
-                          alt=""
-                        />
+                        <div className="relative border-2 m-2 border-neutral-400 h-40 w-40">
+                          <img
+                            className="absolute inset-0 w-full h-full object-cover z-0"
+                            src={backgrounds.bug}
+                            alt=""
+                          />
+                          <img
+                            src={pokemonData.sprites.front_default}
+                            className="absolute size-40 inset-0 w-40 h-40 object-cover m-auto z-10"
+                            alt=""
+                          />
+                        </div>
                         <h2>
                           {pokemonData.name.charAt(0).toUpperCase() +
                             pokemonData.name.slice(1).toLowerCase()}
