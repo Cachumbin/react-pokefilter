@@ -95,7 +95,7 @@ const App = () => {
         <div className="col-span-1 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2 h-[calc(100vh-72px)]">
           <p className="place-self-center text-lg col-span-2">Generation</p>
           <select
-            className="h-10 col-span-2"
+            className="h-10 col-span-2 p-2 rounded-lg text-indigo-900"
             name="generation"
             id="generation-select"
             onChange={(e) => setGeneration(e.target.value)}
@@ -112,7 +112,7 @@ const App = () => {
           <p className="place-self-center text-lg col-span-2">Type</p>
           <select
             onChange={(e) => setType(e.target.value)}
-            className="h-10 col-span-2"
+            className="h-10 col-span-2 p-2 rounded-lg text-indigo-900"
             name="type"
             id="type-select"
             value={type}
@@ -141,7 +141,7 @@ const App = () => {
           <input
             type="number"
             placeholder="min"
-            className="h-10 col-start-1"
+            className="h-10 col-start-1 mx-4 p-2 rounded-lg text-indigo-900"
             value={
               (stats.hpMin == 0 && "") || (stats.hpMin != 0 && stats.hpMin)
             }
@@ -151,11 +151,11 @@ const App = () => {
                 hpMin: parseInt(e.target.value) || 0,
               })
             }
-          />
+          />{" "}
           <input
             type="number"
             placeholder="max"
-            className="h-10"
+            className="h-10 mx-4 p-2 rounded-lg text-indigo-900"
             value={
               (stats.hpMax == 300 && "") || (stats.hpMax != 300 && stats.hpMax)
             }
@@ -170,7 +170,7 @@ const App = () => {
           <input
             type="number"
             placeholder="min"
-            className="h-10 col-start-1"
+            className="h-10 col-start-1 mx-4 p-2 rounded-lg  text-indigo-900"
             value={
               (stats.attackMin == 0 && "") ||
               (stats.attackMin != 0 && stats.attackMin)
@@ -185,7 +185,7 @@ const App = () => {
           <input
             type="number"
             placeholder="max"
-            className="h-10"
+            className="h-10 mx-4 p-2 rounded-lg text-indigo-900"
             value={
               (stats.attackMax == 300 && "") ||
               (stats.attackMax != 300 && stats.attackMax)
@@ -201,7 +201,7 @@ const App = () => {
           <input
             type="number"
             placeholder="min"
-            className="h-10 col-start-1"
+            className="h-10 col-start-1 mx-4 p-2 rounded-lg  text-indigo-900"
             value={
               (stats.defenseMin == 0 && "") ||
               (stats.defenseMin != 0 && stats.defenseMin)
@@ -216,7 +216,7 @@ const App = () => {
           <input
             type="number"
             placeholder="max"
-            className="h-10"
+            className="h-10 mx-4 p-2 rounded-lg text-indigo-900"
             value={
               (stats.defenseMax == 300 && "") ||
               (stats.defenseMax != 300 && stats.defenseMax)
@@ -228,7 +228,10 @@ const App = () => {
               })
             }
           />
-          <button className="col-span-2" onClick={() => clearFilters()}>
+          <button
+            className="col-span-2 bg-indigo-700 rounded-xl"
+            onClick={() => clearFilters()}
+          >
             Clear
           </button>
         </div>
