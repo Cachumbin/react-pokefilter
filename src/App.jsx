@@ -91,8 +91,8 @@ const App = () => {
           </form>
         </div>
       </header>
-      <main className="grid grid-cols-5 a">
-        <div className="col-span-1 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2 h-[calc(100vh-72px)]">
+      <main className="grid grid-cols-11 a">
+        <div className="col-span-2 p-10 bg-violet-950 text-slate-200 font-semibold grid grid-cols-2 h-[calc(100vh-72px)]">
           <p className="place-self-center text-lg col-span-2">Generation</p>
           <select
             className="h-10 col-span-2 p-2 rounded-lg text-indigo-900 mx-4"
@@ -235,8 +235,8 @@ const App = () => {
             Clear
           </button>
         </div>
-        <div className="col-span-4 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
-          <ul className="grid grid-cols-2 place-items-center">
+        <div className="col-span-9 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
+          <ul className="grid grid-cols-3 place-items-center">
             {pokemons.map((pokemonData) => {
               return (
                 pokemonData.name.includes(searchWord) &&
@@ -312,17 +312,26 @@ const App = () => {
                       </ul>
                     </div>
                   </li>*/
-                  <li className="grid grid-cols-5 w-96">
-                    <div className="col-span-2">
-                      <h3>No.{pokemonData.id}</h3>
-                      <img src={pokemonData.sprites.front_default} alt="" />
-                      <h2>
-                        {pokemonData.name.charAt(0).toUpperCase() +
-                          pokemonData.name.slice(1).toLowerCase()}
-                      </h2>
+                  <li
+                    key={pokemonData.id}
+                    className="grid grid-cols-5 w-[480px] pt-8 bg-stone-300"
+                  >
+                    <div className="col-span-2 bg-amber-300">
+                      <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400">
+                        <h3>No.{pokemonData.id}</h3>
+                        <img
+                          src={pokemonData.sprites.front_default}
+                          className="size-40 border-2 m-2 border-neutral-400"
+                          alt=""
+                        />
+                        <h2>
+                          {pokemonData.name.charAt(0).toUpperCase() +
+                            pokemonData.name.slice(1).toLowerCase()}
+                        </h2>
+                      </div>
                     </div>
-                    <div className="col-span-3">
-                      <div>
+                    <div className="col-span-3 bg-amber-300">
+                      <div className="bg-amber-100 rounded-xl m-2">
                         <h3>Types</h3>
                         <ul className="h-12">
                           {pokemonData.types.map((typeinfo) => {
@@ -334,7 +343,7 @@ const App = () => {
                           })}
                         </ul>
                       </div>
-                      <div>
+                      <div className="bg-amber-100 rounded-xl m-2">
                         <h3>Stats</h3>
                         <p className="p-1 mx-3">
                           Attack: {pokemonData.stats[1].base_stat}
@@ -346,7 +355,7 @@ const App = () => {
                           Defense: {pokemonData.stats[2].base_stat}
                         </p>
                       </div>
-                      <div>
+                      <div className="bg-amber-100 rounded-xl m-2">
                         <h3>Abilities</h3>
                         <ul>
                           {pokemonData.abilities.map((ab) => {
