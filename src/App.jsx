@@ -357,10 +357,10 @@ const App = () => {
                   </li>*/
                   <li
                     key={pokemonData.id}
-                    className="grid grid-cols-5 w-[480px] pt-8 bg-stone-300 m-6"
+                    className="grid grid-cols-5 w-[490px] pt-8 bg-stone-300 m-6"
                   >
                     <div className="col-span-2 bg-amber-300">
-                      <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400">
+                      <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400 p-1">
                         <h3>No.{pokemonData.id}</h3>
                         <div className="relative border-2 m-2 border-neutral-400 h-40 w-40">
                           <img
@@ -370,7 +370,7 @@ const App = () => {
                           />
                           <img
                             src={pokemonData.sprites.front_default}
-                            className="absolute size-40 inset-0 w-40 h-40 object-cover m-auto z-10"
+                            className="absolute size-36 inset-0 w-40 h-40 object-cover m-auto z-10"
                             alt=""
                           />
                         </div>
