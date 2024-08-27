@@ -393,7 +393,7 @@ const App = () => {
                           })}
                         </ul>
                       </div>
-                      <div className="bg-amber-100 rounded-xl m-2">
+                      <div className="bg-amber-100 rounded-xl m-2 p-1">
                         <h3>Stats</h3>
                         <p className="p-1 mx-3">
                           Attack: {pokemonData.stats[1].base_stat}
