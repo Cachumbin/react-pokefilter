@@ -381,9 +381,9 @@ const App = () => {
                       </div>
                     </div>
                     <div className="col-span-3 bg-amber-300">
-                      <div className="bg-amber-100 rounded-xl m-2">
+                      <div className="bg-amber-100 rounded-xl m-2 p-1 h-14">
                         <h3>Types</h3>
-                        <ul className="h-12">
+                        <ul className="h-12 flex">
                           {pokemonData.types.map((typeinfo) => {
                             return (
                               <li key={typeinfo.type.name} className="mx-8">
