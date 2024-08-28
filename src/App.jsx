@@ -405,7 +405,7 @@ const App = () => {
                           Defense: {pokemonData.stats[2].base_stat}
                         </p>
                       </div>
-                      <div className="bg-amber-100 rounded-xl m-2">
+                      <div className="bg-amber-100 rounded-xl m-2 p-1">
                         <h3>Abilities</h3>
                         <ul>
                           {pokemonData.abilities.map((ab) => {
