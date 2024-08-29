@@ -357,7 +357,7 @@ const App = () => {
                   </li>*/
                   <li
                     key={pokemonData.id}
-                    className="grid grid-cols-5 w-[490px] pt-8 bg-stone-300 m-6"
+                    className="grid grid-cols-5 w-[490px] h-92 pt-8 bg-stone-300 m-6"
                   >
                     <div className="col-span-2 bg-amber-300">
                       <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400 p-1">
@@ -405,7 +405,7 @@ const App = () => {
                           Defense: {pokemonData.stats[2].base_stat}
                         </p>
                       </div>
-                      <div className="bg-amber-100 rounded-xl m-2 p-1">
+                      <div className="bg-amber-100 rounded-xl h-32 m-2 p-1">
                         <h3>Abilities</h3>
                         <ul>
                           {pokemonData.abilities.map((ab) => {
