@@ -56,6 +56,27 @@ const App = () => {
     water: water,
   };
 
+  const colours = {
+    normal: "#A8A77A",
+    fire: "#EE8130",
+    water: "#6390F0",
+    electric: "#F7D02C",
+    grass: "#7AC74C",
+    ice: "#96D9D6",
+    fighting: "#C22E28",
+    poison: "#A33EA1",
+    ground: "#E2BF65",
+    flying: "#A98FF3",
+    psychic: "#F95587",
+    bug: "#A6B91A",
+    rock: "#B6A136",
+    ghost: "#735797",
+    dragon: "#6F35FC",
+    dark: "#705746",
+    steel: "#B7B7CE",
+    fairy: "#D685AD",
+  };
+
   useEffect(() => {
     setPokemons([]);
     fetch(`https://pokeapi.co/api/v2/generation/${generation}`)
@@ -274,7 +295,7 @@ const App = () => {
             Clear
           </button>
         </div>
-        <div className="col-span-9 bg-indigo-950 overflow-auto h-[calc(100vh-72px)]">
+        <div className="col-span-9 bg-rose-300 overflow-auto h-[calc(100vh-72px)]">
           <ul className="grid grid-cols-3 place-items-center">
             {pokemons.map((pokemonData) => {
               const pokemonType = pokemonData.types[0]?.type?.name || "normal";
@@ -294,65 +315,68 @@ const App = () => {
                 pokemonData.stats[2].base_stat <= stats.defenseMax && (
                   <li
                     key={pokemonData.id}
-                    className="grid grid-cols-5 w-[490px] h-92 pt-8 bg-stone-300 m-6"
+                    className=" w-[510px] pt-8 bg-stone-300 m-5"
                   >
-                    <div className="col-span-2 bg-amber-300">
-                      <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400 p-1">
-                        <h3>No.{pokemonData.id}</h3>
-                        <div className="relative border-2 m-2 border-neutral-400 h-40 w-40">
-                          <img
-                            className="absolute inset-0 w-full h-full object-cover z-0"
-                            src={backgroundImage}
-                            alt=""
-                          />
-                          <img
-                            src={pokemonData.sprites.front_default}
-                            className="absolute size-36 inset-0 w-40 h-40 object-cover m-auto z-10"
-                            alt=""
-                          />
+                    <p className="relative bottom-3 mx-10">Pokemon Info</p>
+                    <div className="grid grid-cols-5">
+                      <div className="col-span-2 bg-amber-300">
+                        <div className="bg-violet-300 rounded-xl m-2 border-2 border-neutral-400 p-1">
+                          <h3>No.{pokemonData.id}</h3>
+                          <div className="relative border-2 m-2 border-neutral-400 h-40 w-40">
+                            <img
+                              className="absolute inset-0 w-full h-full object-cover z-0"
+                              src={backgroundImage}
+                              alt=""
+                            />
+                            <img
+                              src={pokemonData.sprites.front_default}
+                              className="absolute size-36 inset-0 w-40 h-40 object-cover m-auto z-10"
+                              alt=""
+                            />
+                          </div>
+                          <h2>
+                            {pokemonData.name.charAt(0).toUpperCase() +
+                              pokemonData.name.slice(1).toLowerCase()}
+                          </h2>
                         </div>
-                        <h2>
-                          {pokemonData.name.charAt(0).toUpperCase() +
-                            pokemonData.name.slice(1).toLowerCase()}
-                        </h2>
                       </div>
-                    </div>
-                    <div className="col-span-3 bg-amber-300">
-                      <div className="bg-amber-100 rounded-xl m-2 p-1 h-14">
-                        <h3>Types</h3>
-                        <ul className="h-12 flex">
-                          {pokemonData.types.map((typeinfo) => {
-                            return (
-                              <li key={typeinfo.type.name} className="mx-8">
-                                {typeinfo.type.name}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                      <div className="bg-amber-100 rounded-xl m-2 p-1">
-                        <h3>Stats</h3>
-                        <p className="p-1 mx-3">
-                          Attack: {pokemonData.stats[1].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Hp: {pokemonData.stats[0].base_stat}
-                        </p>
-                        <p className="p-1 mx-3">
-                          Defense: {pokemonData.stats[2].base_stat}
-                        </p>
-                      </div>
-                      <div className="bg-amber-100 rounded-xl h-32 m-2 p-1">
-                        <h3>Abilities</h3>
-                        <ul>
-                          {pokemonData.abilities.map((ab) => {
-                            return (
-                              <li key={ab.ability.name} className="p-1 mx-3">
-                                - {ab.ability.name}
-                              </li>
-                            );
-                          })}
-                        </ul>
+                      <div className="col-span-3 bg-amber-300">
+                        <div className="bg-amber-100 rounded-xl m-2 p-1 h-14">
+                          <h3>Types</h3>
+                          <ul className="h-12 flex">
+                            {pokemonData.types.map((typeinfo) => {
+                              return (
+                                <li key={typeinfo.type.name} className="mx=8">
+                                  {typeinfo.type.name}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                        <div className="bg-amber-100 rounded-xl m-2 p-1">
+                          <h3>Stats</h3>
+                          <p className="p-1 mx-3">
+                            Attack: {pokemonData.stats[1].base_stat}
+                          </p>
+                          <p className="p-1 mx-3">
+                            Hp: {pokemonData.stats[0].base_stat}
+                          </p>
+                          <p className="p-1 mx-3">
+                            Defense: {pokemonData.stats[2].base_stat}
+                          </p>
+                        </div>
+                        <div className="bg-amber-100 rounded-xl h-32 m-2 p-1">
+                          <h3>Abilities</h3>
+                          <ul>
+                            {pokemonData.abilities.map((ab) => {
+                              return (
+                                <li key={ab.ability.name} className="p-1 mx-3">
+                                  - {ab.ability.name}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </li>
