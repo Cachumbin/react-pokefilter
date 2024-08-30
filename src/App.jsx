@@ -292,69 +292,6 @@ const App = () => {
                 pokemonData.stats[1].base_stat <= stats.attackMax &&
                 pokemonData.stats[2].base_stat >= stats.defenseMin &&
                 pokemonData.stats[2].base_stat <= stats.defenseMax && (
-                  /*<li
-                    key={pokemonData.id}
-                    className="relative m-5 bg-sky-700 h-[450px] w-72 rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]"
-                  >
-                    <div className="absolute inset-0 [backface-visibility:hidden] grid gris-rows-6 font-semibold text-slate-200">
-                      <img
-                        src={pokemonData.sprites.front_default}
-                        alt=""
-                        className="size-48 place-self-center"
-                      />
-                      <h2 className="p-1  mx-3 text-lg">
-                        {pokemonData.name.charAt(0).toUpperCase() +
-                          pokemonData.name.slice(1).toLowerCase()}
-                      </h2>
-                      <h3 className="p-1 mx-3">Type</h3>
-                      <ul className="h-12">
-                        {pokemonData.types.map((typeinfo) => {
-                          return (
-                            <li key={typeinfo.type.name} className="mx-8">
-                              - {typeinfo.type.name}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <p className="p-1 mx-3">
-                        Attack: {pokemonData.stats[1].base_stat}
-                      </p>
-                      <p className="p-1 mx-3">
-                        Hp: {pokemonData.stats[0].base_stat}
-                      </p>
-                      <p className="p-1 mx-3">
-                        Defense: {pokemonData.stats[2].base_stat}
-                      </p>
-                    </div>
-                    <div className=" overflow-hidden absolute inset-0 h-full w-full rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] text-slate-200 font-semibold">
-                      <p className="p-1 mx-3 mt-4">
-                        Special Defense: {pokemonData.stats[4].base_stat}
-                      </p>
-                      <p className="p-1 mx-3">
-                        Speed: {pokemonData.stats[5].base_stat}
-                      </p>
-                      <h3 className="p-1 mx-3 text-lg">Ablilities</h3>
-                      <ul>
-                        {pokemonData.abilities.map((ab) => {
-                          return (
-                            <li key={ab.ability.name} className="p-1 mx-3">
-                              - {ab.ability.name}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      <h3 className="p-1 mx-3 text-lg">Moves</h3>
-                      <ul>
-                        {pokemonData.moves.map((mo) => {
-                          return (
-                            <li key={mo.move.name} className="p-1 mx-3">
-                              - {mo.move.name}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                  </li>*/
                   <li
                     key={pokemonData.id}
                     className="grid grid-cols-5 w-[490px] h-92 pt-8 bg-stone-300 m-6"
