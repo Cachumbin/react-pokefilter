@@ -1,3 +1,5 @@
+import RangeInputs from "./RangeInputs";
+
 const Filters = ({
   generation,
   setGeneration,
@@ -55,97 +57,26 @@ const Filters = ({
         <option value="steel">Steel</option>
         <option value="water">Water</option>
       </select>
-
-      <h3>Hp</h3>
-      <input
-        type="number"
-        placeholder="min"
-        className="h-10 col-start-1 mx-4 p-2 rounded-lg text-indigo-900"
-        value={(stats.hpMin == 0 && "") || (stats.hpMin != 0 && stats.hpMin)}
-        onChange={(e) =>
-          setStats({
-            ...stats,
-            hpMin: parseInt(e.target.value) || 0,
-          })
-        }
+      <RangeInputs
+        label="Hp"
+        minValue={stats.hpMin}
+        maxValue={stats.hpMax}
+        setMinValue={(value) => setStats({ ...stats, hpMin: value })}
+        setMaxValue={(value) => setStats({ ...stats, hpMax: value })}
       />
-      <input
-        type="number"
-        placeholder="max"
-        className="h-10 mx-4 p-2 rounded-lg text-indigo-900"
-        value={
-          (stats.hpMax == 300 && "") || (stats.hpMax != 300 && stats.hpMax)
-        }
-        onChange={(e) =>
-          setStats({
-            ...stats,
-            hpMax: parseInt(e.target.value) || 300,
-          })
-        }
+      <RangeInputs
+        label="Attack"
+        minValue={stats.attackMin}
+        maxValue={stats.attackMax}
+        setMinValue={(value) => setStats({ ...stats, attackMin: value })}
+        setMaxValue={(value) => setStats({ ...stats, attackMax: value })}
       />
-
-      <h3>Attack</h3>
-      <input
-        type="number"
-        placeholder="min"
-        className="h-10 col-start-1 mx-4 p-2 rounded-lg text-indigo-900"
-        value={
-          (stats.attackMin == 0 && "") ||
-          (stats.attackMin != 0 && stats.attackMin)
-        }
-        onChange={(e) =>
-          setStats({
-            ...stats,
-            attackMin: parseInt(e.target.value) || 0,
-          })
-        }
-      />
-      <input
-        type="number"
-        placeholder="max"
-        className="h-10 mx-4 p-2 rounded-lg text-indigo-900"
-        value={
-          (stats.attackMax == 300 && "") ||
-          (stats.attackMax != 300 && stats.attackMax)
-        }
-        onChange={(e) =>
-          setStats({
-            ...stats,
-            attackMax: parseInt(e.target.value) || 300,
-          })
-        }
-      />
-
-      <h3>Defense</h3>
-      <input
-        type="number"
-        placeholder="min"
-        className="h-10 col-start-1 mx-4 p-2 rounded-lg text-indigo-900"
-        value={
-          (stats.defenseMin == 0 && "") ||
-          (stats.defenseMin != 0 && stats.defenseMin)
-        }
-        onChange={(e) =>
-          setStats({
-            ...stats,
-            defenseMin: parseInt(e.target.value) || 0,
-          })
-        }
-      />
-      <input
-        type="number"
-        placeholder="max"
-        className="h-10 mx-4 p-2 rounded-lg text-indigo-900"
-        value={
-          (stats.defenseMax == 300 && "") ||
-          (stats.defenseMax != 300 && stats.defenseMax)
-        }
-        onChange={(e) =>
-          setStats({
-            ...stats,
-            defenseMax: parseInt(e.target.value) || 300,
-          })
-        }
+      <RangeInputs
+        label="Defense"
+        minValue={stats.defenseMin}
+        maxValue={stats.defenseMax}
+        setMinValue={(value) => setStats({ ...stats, defenseMin: value })}
+        setMaxValue={(value) => setStats({ ...stats, defenseMax: value })}
       />
 
       <button
